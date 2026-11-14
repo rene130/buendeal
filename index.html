@@ -41,11 +41,12 @@ header img{height:84px;width:auto}
 .name{font-size:21px;font-weight:700;line-height:1.2}
 .name small{display:block;color:var(--mut);font-weight:400;font-size:15px;margin-top:3px}
 .price{color:var(--or);font-size:32px;font-weight:900;letter-spacing:.01em}
-.stats{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.stats div{padding:10px 4px;text-align:center}
-.stats div+div{border-left:1px solid var(--line)}
-.stats b{display:block;font-size:15px}
-.stats span{font-size:10px;letter-spacing:.2em;color:var(--or);text-transform:uppercase}
+.stats{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.stats div{padding:10px 12px}
+.stats div:nth-child(even){border-left:1px solid var(--line)}
+.stats div:nth-child(n+3){border-top:1px solid var(--line)}
+.stats b{display:block;font-size:17px}
+.stats span{font-size:11px;letter-spacing:.12em;color:var(--or);text-transform:uppercase}
 ul.dest{list-style:none;display:flex;flex-wrap:wrap;gap:6px}
 ul.dest li{font-size:13px;color:#dfe3e6;border:1px solid var(--line);border-radius:12px;padding:4px 10px}
 .cta{margin-top:auto;display:flex;align-items:center;justify-content:center;gap:10px;background:var(--or);
@@ -99,13 +100,13 @@ function render(){
    <article class="card">
     <div class="ph"><img src="${a.foto}" alt="${a.marca} ${a.modelo} ${a.anio}" loading="lazy"><span class="tag">${a.tipo}</span></div>
     <div class="body">
-     <div class="name">${a.marca} ${a.modelo.split(' ')[0]}<small>${a.modelo} · ${a.anio}</small></div>
+     <div class="name">${a.marca} ${a.modelo.split(' ')[0]}<small>${a.modelo} · ${a.anio} · Tracción ${a.traccion}</small></div>
      <div class="price">${clp(a.precio)}</div>
      <div class="stats">
-      <div><b>${a.anio}</b><span>Año</span></div>
-      <div><b>${(a.km/1000).toLocaleString('es-CL',{maximumFractionDigits:1})}k</b><span>Km</span></div>
-      <div><b>${a.combustible}</b><span>Motor</span></div>
-      <div><b>${a.traccion}</b><span>${a.transmision==='Automática'?'Aut.':'Mec.'}</span></div>
+      <div><span>Año</span><b>${a.anio}</b></div>
+      <div><span>Kilómetros</span><b>${km(a.km)}</b></div>
+      <div><span>Combustible</span><b>${a.combustible}</b></div>
+      <div><span>Transmisión</span><b>${a.transmision}</b></div>
      </div>
      <ul class="dest">${a.destacados.map(d=>`<li>${d}</li>`).join('')}</ul>
      <a class="cta" href="${wa(a)}" target="_blank" rel="noopener">Consultar por WhatsApp</a>
