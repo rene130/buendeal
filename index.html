@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>BuenDeal · Autos en venta · HC Garage</title>
+<meta name="description" content="Autos usados en venta por BuenDeal, de HC Garage. Escríbenos por WhatsApp.">
+<meta property="og:title" content="BuenDeal · Autos en venta">
+<meta property="og:description" content="Autos usados en venta, revisa el stock y escríbenos por WhatsApp.">
+<meta property="og:image" content="foto-maxus.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+<style>
+:root{--or:#FF6A1A;--bg1:#2b3238;--bg2:#0d0f12;--line:rgba(255,255,255,.28);--mut:#b9bec4}
+*{box-sizing:border-box;margin:0;padding:0}
+html{background:#0d0f12}
+body{font-family:Lato,Carlito,Arial,sans-serif;color:#fff;min-height:100vh;
+ background:linear-gradient(135deg,var(--bg1) 0%,#15191d 45%,var(--bg2) 100%)}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+header{padding:34px 0 10px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+header img{height:84px;width:auto}
+.pill{background:var(--or);color:#fff;letter-spacing:.32em;font-size:14px;font-weight:700;
+ padding:9px 34px 9px 26px;border-radius:22px 0 0 22px;margin-right:-24px;text-transform:uppercase}
+.band{background:var(--or);border-radius:0 22px 22px 0;display:inline-block;margin:18px 0 6px -24px;
+ padding:10px 60px 10px 50px;letter-spacing:.42em;font-size:15px;font-weight:700;text-transform:uppercase}
+.intro{color:var(--mut);font-size:16px;margin:14px 0 6px;max-width:760px;line-height:1.5}
+.lbl{color:var(--or);letter-spacing:.3em;font-size:12px;text-transform:uppercase;font-weight:700}
+.filters{display:flex;gap:10px;flex-wrap:wrap;margin:22px 0 4px}
+.filters button{background:transparent;border:1px solid var(--line);color:#fff;border-radius:20px;
+ padding:8px 18px;font:700 12px Lato,sans-serif;letter-spacing:.18em;text-transform:uppercase;cursor:pointer}
+.filters button.on{background:var(--or);border-color:var(--or)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:22px;margin:22px 0 40px}
+.card{border:1.5px solid var(--line);border-radius:16px;background:rgba(10,12,15,.55);overflow:hidden;display:flex;flex-direction:column}
+.ph{position:relative;aspect-ratio:4/3;background:#111}
+.ph img{width:100%;height:100%;object-fit:cover;display:block}
+.tag{position:absolute;top:12px;left:12px;background:rgba(13,15,18,.82);border:1px solid var(--line);
+ border-radius:14px;padding:5px 12px;font-size:11px;letter-spacing:.2em;font-weight:700;text-transform:uppercase}
+.body{padding:18px 20px 20px;display:flex;flex-direction:column;gap:12px;flex:1}
+.name{font-size:21px;font-weight:700;line-height:1.2}
+.name small{display:block;color:var(--mut);font-weight:400;font-size:15px;margin-top:3px}
+.price{color:var(--or);font-size:32px;font-weight:900;letter-spacing:.01em}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.stats div{padding:10px 4px;text-align:center}
+.stats div+div{border-left:1px solid var(--line)}
+.stats b{display:block;font-size:15px}
+.stats span{font-size:10px;letter-spacing:.2em;color:var(--or);text-transform:uppercase}
+ul.dest{list-style:none;display:flex;flex-wrap:wrap;gap:6px}
+ul.dest li{font-size:13px;color:#dfe3e6;border:1px solid var(--line);border-radius:12px;padding:4px 10px}
+.cta{margin-top:auto;display:flex;align-items:center;justify-content:center;gap:10px;background:var(--or);
+ border-radius:24px;padding:13px;font-weight:700;letter-spacing:.2em;font-size:13px;text-transform:uppercase}
+.cta:hover{filter:brightness(1.08)}
+.how{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;margin:10px 0 40px}
+.how>div{border:1.5px solid var(--line);border-radius:16px;padding:20px;background:rgba(10,12,15,.45)}
+.how p{color:var(--mut);margin-top:8px;line-height:1.5;font-size:15px}
+footer{border-top:1px solid var(--line);padding:22px 0 34px;color:var(--mut);font-size:13px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+footer .s{color:#c9cdd1;letter-spacing:.3em;text-transform:uppercase;font-size:11px}
+.empty{color:var(--mut);padding:40px 0}
+@media(max-width:600px){header img{height:60px}.pill{display:none}.grid{grid-template-columns:1fr}.price{font-size:28px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+ <header>
+  <img src="logo.svg" alt="HC Garage">
+  <a class="pill" href="https://www.hcgarage.cl" target="_blank" rel="noopener">www.hcgarage.cl</a>
+ </header>
+ <div class="band">BuenDeal · Autos en venta</div>
+ <p class="intro">Autos usados seleccionados por <b>BuenDeal</b>, de HC Garage (Madrid 919, Santiago). Escríbenos por WhatsApp para coordinar una visita o una prueba de manejo.</p>
+ <div class="filters" id="f"></div>
+ <div class="grid" id="g"><p class="empty">Cargando autos…</p></div>
+
+ <div class="lbl" style="margin-bottom:12px">¿Quieres vender tu auto?</div>
+ <div class="how">
+  <div><div class="lbl">1 · Valorización</div><p>Te decimos a qué precio se vende tu auto, comparando avisos reales del mercado.</p></div>
+  <div><div class="lbl">2 · Preparación</div><p>Lavado, fotos profesionales y publicación en los principales portales.</p></div>
+  <div><div class="lbl">3 · Venta</div><p>Atendemos a los interesados y te acompañamos hasta la transferencia.</p></div>
+ </div>
+
+ <footer>
+  <div>HC Garage SpA · Madrid 919, Santiago · <span id="upd"></span></div>
+  <div class="s">BuenDeal · HC Garage</div>
+ </footer>
+</div>
+<script>
+const clp=n=>'$'+n.toLocaleString('es-CL');
+const km=n=>n.toLocaleString('es-CL')+' km';
+let DATA=null,FILT='Todos';
+function wa(a){
+  const t=a?`Hola, me interesa el ${a.marca} ${a.modelo} ${a.anio} publicado en BuenDeal (${clp(a.precio)}).`
+           :'Hola, quiero vender mi auto con BuenDeal.';
+  return `https://wa.me/${DATA.whatsapp}?text=${encodeURIComponent(t)}`;
+}
+function render(){
+  const g=document.getElementById('g');
+  const list=DATA.autos.filter(a=>FILT==='Todos'||a.tipo===FILT);
+  g.innerHTML=list.length?list.map(a=>`
+   <article class="card">
+    <div class="ph"><img src="${a.foto}" alt="${a.marca} ${a.modelo} ${a.anio}" loading="lazy"><span class="tag">${a.tipo}</span></div>
+    <div class="body">
+     <div class="name">${a.marca} ${a.modelo.split(' ')[0]}<small>${a.modelo} · ${a.anio}</small></div>
+     <div class="price">${clp(a.precio)}</div>
+     <div class="stats">
+      <div><b>${a.anio}</b><span>Año</span></div>
+      <div><b>${(a.km/1000).toLocaleString('es-CL',{maximumFractionDigits:1})}k</b><span>Km</span></div>
+      <div><b>${a.combustible}</b><span>Motor</span></div>
+      <div><b>${a.traccion}</b><span>${a.transmision==='Automática'?'Aut.':'Mec.'}</span></div>
+     </div>
+     <ul class="dest">${a.destacados.map(d=>`<li>${d}</li>`).join('')}</ul>
+     <a class="cta" href="${wa(a)}" target="_blank" rel="noopener">Consultar por WhatsApp</a>
+    </div>
+   </article>`).join(''):'<p class="empty">No hay autos en esta categoría por ahora.</p>';
+}
+fetch('autos.json?v='+Date.now()).then(r=>r.json()).then(d=>{
+  DATA=d;
+  const tipos=['Todos',...new Set(d.autos.map(a=>a.tipo))];
+  const f=document.getElementById('f');
+  f.innerHTML=tipos.map(t=>`<button class="${t===FILT?'on':''}">${t}</button>`).join('');
+  f.querySelectorAll('button').forEach(b=>b.onclick=()=>{FILT=b.textContent;f.querySelectorAll('button').forEach(x=>x.classList.toggle('on',x===b));render()});
+  const [y,m,dd]=d.actualizado.split('-');
+  document.getElementById('upd').textContent=`Stock actualizado al ${dd}/${m}/${y}`;
+  render();
+}).catch(()=>{document.getElementById('g').innerHTML='<p class="empty">No se pudo cargar el stock.</p>'});
+</script>
+</body>
+</html>
