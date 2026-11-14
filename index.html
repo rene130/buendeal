@@ -113,14 +113,31 @@ function render(){
     </div>
    </article>`).join(''):'<p class="empty">No hay autos en esta categoría por ahora.</p>';
 }
-fetch('autos.json?v='+Date.now()).then(r=>r.json()).then(d=>{
+const SHEET='https://docs.google.com/spreadsheets/d/1UZKFOHXYsZt562qWbJHuuab-VLRpE65phI-0QnBifT8/gviz/tq?tqx=out:csv';
+function parseCSV(t){const rows=[];let row=[],f='',q=false;for(let i=0;i<t.length;i++){const c=t[i];
+ if(q){if(c=='"'){if(t[i+1]=='"'){f+='"';i++}else q=false}else f+=c}
+ else if(c=='"')q=true;else if(c==','){row.push(f);f=''}else if(c=='\n'){row.push(f);rows.push(row);row=[];f=''}else if(c!='\r')f+=c}
+ if(f||row.length){row.push(f);rows.push(row)}return rows}
+const num=v=>parseInt(String(v).replace(/[^0-9]/g,''))||0;
+async function cargar(){
+  try{
+    const t=await (await fetch(SHEET+'&v='+Date.now())).text();
+    const [h,...r]=parseCSV(t);const ix=k=>h.indexOf(k);
+    const autos=r.filter(x=>x[ix('id')]).map(x=>({id:x[ix('id')],marca:x[ix('marca')],modelo:x[ix('modelo')],anio:num(x[ix('anio')]),km:num(x[ix('km')]),
+      combustible:x[ix('combustible')],transmision:x[ix('transmision')],traccion:x[ix('traccion')],tipo:x[ix('tipo')],precio:num(x[ix('precio')]),
+      foto:'https://drive.google.com/thumbnail?id='+x[ix('foto_id')]+'&sz=w800',
+      destacados:[x[ix('destacado1')],x[ix('destacado2')],x[ix('destacado3')]].filter(Boolean)}));
+    if(ix('id')<0) throw 0;
+    return {actualizado:(r[0]&&r[0][ix('actualizado')])||'',whatsapp:'56984797248',autos};
+  }catch(e){ return (await fetch('autos.json?v='+Date.now())).json(); }
+}
+cargar().then(d=>{
   DATA=d;
   const tipos=['Todos',...new Set(d.autos.map(a=>a.tipo))];
   const f=document.getElementById('f');
   f.innerHTML=tipos.map(t=>`<button class="${t===FILT?'on':''}">${t}</button>`).join('');
   f.querySelectorAll('button').forEach(b=>b.onclick=()=>{FILT=b.textContent;f.querySelectorAll('button').forEach(x=>x.classList.toggle('on',x===b));render()});
-  const [y,m,dd]=d.actualizado.split('-');
-  document.getElementById('upd').textContent=`Stock actualizado al ${dd}/${m}/${y}`;
+  if(d.actualizado){const [y,m,dd]=d.actualizado.split('-');document.getElementById('upd').textContent=`Stock actualizado al ${dd}/${m}/${y}`;}
   render();
 }).catch(()=>{document.getElementById('g').innerHTML='<p class="empty">No se pudo cargar el stock.</p>'});
 </script>
