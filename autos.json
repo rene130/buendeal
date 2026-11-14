@@ -1,0 +1,34 @@
+{
+  "actualizado": "2026-11-14",
+  "whatsapp": "56984797248",
+  "autos": [
+    {
+      "id": "maxus-t60-2022",
+      "marca": "Maxus", "modelo": "T60 2.8 GL Doble Cabina", "anio": 2022,
+      "km": 68700, "combustible": "Diésel", "transmision": "Mecánica", "traccion": "4x4",
+      "tipo": "Camioneta", "precio": 12990000, "foto": "foto-maxus.svg",
+      "destacados": ["Tracción 4x4", "Doble cabina", "Motor 2.8 diésel"]
+    },
+    {
+      "id": "skoda-octavia-scout-2019",
+      "marca": "Skoda", "modelo": "Octavia Scout 2.0 TDI", "anio": 2019,
+      "km": 97800, "combustible": "Diésel", "transmision": "Automática", "traccion": "4x4",
+      "tipo": "Station wagon", "precio": 16990000, "foto": "foto-skoda.svg",
+      "destacados": ["Tracción 4x4", "Automático", "Motor 2.0 TDI"]
+    },
+    {
+      "id": "peugeot-2008-2021",
+      "marca": "Peugeot", "modelo": "2008 1.2 PureTech 130 Active", "anio": 2021,
+      "km": 56800, "combustible": "Bencina", "transmision": "Mecánica", "traccion": "4x2",
+      "tipo": "SUV", "precio": 10990000, "foto": "foto-peugeot.svg",
+      "destacados": ["Bajo kilometraje", "Motor 1.2 turbo 130 hp", "Nueva generación"]
+    },
+    {
+      "id": "volvo-xc60-2015",
+      "marca": "Volvo", "modelo": "XC60 2.0 D3 Comfort", "anio": 2015,
+      "km": 139700, "combustible": "Diésel", "transmision": "Automática", "traccion": "4x2",
+      "tipo": "SUV", "precio": 10490000, "foto": "foto-volvo.svg",
+      "destacados": ["Automático", "Motor 2.0 diésel", "Seguridad Volvo"]
+    }
+  ]
+}
