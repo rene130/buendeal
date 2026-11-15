@@ -49,9 +49,12 @@ header img{height:84px;width:auto}
 .stats span{font-size:11px;letter-spacing:.12em;color:var(--or);text-transform:uppercase}
 ul.dest{list-style:none;display:flex;flex-wrap:wrap;gap:6px}
 ul.dest li{font-size:13px;color:#dfe3e6;border:1px solid var(--line);border-radius:12px;padding:4px 10px}
-.cta{margin-top:auto;display:flex;align-items:center;justify-content:center;gap:10px;background:var(--or);
+.cta{margin-top:auto;display:flex;align-items:center;justify-content:center;gap:10px;background:#25D366;color:#fff;
  border-radius:24px;padding:13px;font-weight:700;letter-spacing:.2em;font-size:13px;text-transform:uppercase}
-.cta:hover{filter:brightness(1.08)}
+.cta:hover{background:#1EBE5A}
+.wa-float{position:fixed;right:20px;bottom:20px;z-index:50;display:flex;align-items:center;gap:10px;background:#25D366;color:#fff;border-radius:32px;padding:12px 20px 12px 14px;font-weight:700;font-size:15px;box-shadow:0 6px 20px rgba(0,0,0,.45);text-decoration:none}
+.wa-float:hover{background:#1EBE5A}
+@media(max-width:600px){.wa-float span{display:none}.wa-float{padding:14px}}
 .how{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;margin:10px 0 40px}
 .how>div{border:1.5px solid var(--line);border-radius:16px;padding:20px;background:rgba(10,12,15,.45)}
 .how p{color:var(--mut);margin-top:8px;line-height:1.5;font-size:15px}
@@ -84,6 +87,7 @@ footer .s{color:#c9cdd1;letter-spacing:.3em;text-transform:uppercase;font-size:1
   <div class="s">BuenDeal · HC Garage</div>
  </footer>
 </div>
+<a class="wa-float" href="https://wa.me/56984797248?text=Hola%2C%20vi%20los%20autos%20de%20BuenDeal%20y%20quiero%20m%C3%A1s%20informaci%C3%B3n." target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp"><svg viewBox="0 0 32 32" width="28" height="28" fill="#fff" aria-hidden="true"><path d="M16.04 3C8.86 3 3.03 8.82 3.03 16c0 2.29.6 4.53 1.74 6.5L3 29l6.68-1.75A12.96 12.96 0 0 0 16.04 29C23.2 29 29 23.18 29 16S23.2 3 16.04 3zm0 23.6c-1.98 0-3.92-.53-5.61-1.53l-.4-.24-3.97 1.04 1.06-3.86-.26-.4A10.6 10.6 0 0 1 5.4 16c0-5.86 4.77-10.63 10.64-10.63 5.85 0 10.6 4.77 10.6 10.63 0 5.87-4.75 10.6-10.6 10.6zm5.83-7.95c-.32-.16-1.89-.93-2.18-1.04-.3-.1-.5-.16-.72.16-.21.32-.82 1.04-1 1.25-.19.21-.37.24-.69.08-.32-.16-1.35-.5-2.57-1.58-.95-.85-1.59-1.9-1.78-2.22-.18-.32-.02-.49.14-.65.15-.14.32-.37.48-.56.16-.18.21-.32.32-.53.1-.21.05-.4-.03-.56-.08-.16-.72-1.73-.98-2.37-.26-.62-.52-.54-.72-.55h-.61c-.21 0-.56.08-.85.4-.3.32-1.12 1.09-1.12 2.66 0 1.57 1.14 3.08 1.3 3.3.16.2 2.25 3.43 5.45 4.81.76.33 1.35.52 1.81.67.76.24 1.46.2 2 .12.61-.09 1.89-.77 2.15-1.52.27-.74.27-1.38.19-1.52-.08-.13-.29-.21-.61-.37z"/></svg><span>Escríbenos por WhatsApp</span></a>
 <script>
 const clp=n=>'$'+n.toLocaleString('es-CL');
 const km=n=>n.toLocaleString('es-CL')+' km';
@@ -109,7 +113,7 @@ function render(){
       <div><span>Transmisión</span><b>${a.transmision}</b></div>
      </div>
      <ul class="dest">${a.destacados.map(d=>`<li>${d}</li>`).join('')}</ul>
-     <a class="cta" href="${wa(a)}" target="_blank" rel="noopener">Consultar por WhatsApp</a>
+     <a class="cta" href="${wa(a)}" target="_blank" rel="noopener"><svg viewBox="0 0 32 32" width="20" height="20" fill="#fff" aria-hidden="true"><path d="M16.04 3C8.86 3 3.03 8.82 3.03 16c0 2.29.6 4.53 1.74 6.5L3 29l6.68-1.75A12.96 12.96 0 0 0 16.04 29C23.2 29 29 23.18 29 16S23.2 3 16.04 3zm0 23.6c-1.98 0-3.92-.53-5.61-1.53l-.4-.24-3.97 1.04 1.06-3.86-.26-.4A10.6 10.6 0 0 1 5.4 16c0-5.86 4.77-10.63 10.64-10.63 5.85 0 10.6 4.77 10.6 10.63 0 5.87-4.75 10.6-10.6 10.6zm5.83-7.95c-.32-.16-1.89-.93-2.18-1.04-.3-.1-.5-.16-.72.16-.21.32-.82 1.04-1 1.25-.19.21-.37.24-.69.08-.32-.16-1.35-.5-2.57-1.58-.95-.85-1.59-1.9-1.78-2.22-.18-.32-.02-.49.14-.65.15-.14.32-.37.48-.56.16-.18.21-.32.32-.53.1-.21.05-.4-.03-.56-.08-.16-.72-1.73-.98-2.37-.26-.62-.52-.54-.72-.55h-.61c-.21 0-.56.08-.85.4-.3.32-1.12 1.09-1.12 2.66 0 1.57 1.14 3.08 1.3 3.3.16.2 2.25 3.43 5.45 4.81.76.33 1.35.52 1.81.67.76.24 1.46.2 2 .12.61-.09 1.89-.77 2.15-1.52.27-.74.27-1.38.19-1.52-.08-.13-.29-.21-.61-.37z"/></svg>Consultar por WhatsApp</a>
     </div>
    </article>`).join(''):'<p class="empty">No hay autos en esta categoría por ahora.</p>';
 }
